@@ -26,19 +26,84 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-}
+    buildFeatures{
+        dataBinding true
+    }
 
 dependencies {
 
-    implementation fileTree(dir: "libs",includes: ["*.jar"])
+//    implementation fileTree(dir: "libs",includes: ["*.jar"])
 //    ConstraintLayout是一个用于布局的Android库，可以帮助开发者创建复杂的布局结构。
 //    它使用约束来定义视图之间的关系，从而使得布局更加灵活和自适应。
 //    AndroidX ConstraintLayout是Android Support Library中ConstraintLayout的升级版，
 //    它提供了更好的性能和更多的功能
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+        implementation 'androidx.appcompat:appcompat:1.6.1'
+        implementation 'com.google.android.material:material:1.8.0'
+        testImplementation 'junit:junit:4.13.2'
+        androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+//    AndroidX Compose是一套用于构建Android界面的现代化工具集。
+//    其中，Compose Material是Android Material Design的Composable实现，
+//    提供了一系列Material Design样式的可组合组件，可以帮助开发者快速构建具有一致外观和行为的应用程序。
+        implementation 'com.google.android.material:material:1.8.0'
+
+//    Retrofit是一个针对Android和Java的类型安全HTTP客户端库，
+//    可以轻松地使用RESTful web服务。
+//    第一行代码导入了Retrofit库本身，
+//    用于添加Retrofit库的Gson转换器依赖，以便将响应转换为Java对象。
+//    Gson是一个Google提供的用于序列化和反序列化Java对象到JSON的库，
+//    它可以将JSON数据转换为Java对象，并将Java对象转换为JSON数据，非常方便。
+        implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+        implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+//    Picasso是一个流行的Android图片加载库，可以帮助开发者在应用程序中轻松地加载和处理图像。
+//    它提供了简单易用的API，可以从网络、本地资源或URI中加载图片，并提供了缓存和调整大小等功能
+        implementation 'com.squareup.picasso:picasso:2.71828'
+
+//    AndroidX Lifecycle是一个用于管理Android应用程序组件生命周期的库。
+//    Lifecycle Extensions库为Lifecycle库提供了额外的功能，
+//    包括ViewModel和LiveData等组件，可以帮助开发者编写更加健壮和可维护的应用程序。
+        implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+//    AndroidX Room是一个用于操作本地SQLite数据库的库，
+//    它提供了一种简单的方式来定义数据库表和访问方法，
+//    并提供了类型安全的查询API和LiveData支持等功能。
+
+//    第一行代码表示将Room库的Runtime模块添加到项目的依赖项中，
+//    并在构建时包含它。Runtime模块提供了Room库的核心功能，
+//    包括定义数据库和访问方法等。
+
+//    第二行代码中的“annotationProcessor”关键字表示将Room库的Compiler模块添加到项目中，
+//    并在编译时使用它。Compiler模块提供了Room库的注解处理器，可以帮助开发者生成必要的代码来支持数据库操作。
+
+//    第三行代码中的“implementation”关键字表示将Room库的RxJava2模块添加到项目的依赖项中，
+//    并在构建时包含它。RxJava2模块提供了Room库的RxJava支持，可以帮助开发者在异步线程中处理数据库操作。
+
+        implementation 'androidx.room:room-runtime:2.5.1'
+        annotationProcessor 'androidx.room:room-compiler:2.5.1'
+        implementation 'androidx.room:room-rxjava2:2.5.1'
+
+//    RxAndroid是RxJava库的一个扩展，它提供了Android特定的调度器，
+//    可以帮助开发者在Android应用程序中方便地使用RxJava。
+//    RxJava是一个基于响应式编程范式的库，可以帮助开发者编写异步、事件驱动和响应式的代码
+        implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+//    SDP和SSP库是Intuit公司开发的Android尺寸单位库，可以帮助开发者在不同的设备上实现一致的布局效果。
+//    这两个库提供了一组新的尺寸单位，可以自动适应不同的屏幕密度和方向，并支持垂直和水平方向的间距和边距等。
+        implementation 'com.intuit.sdp:sdp-android:1.0.6'
+        implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+//    RoundedImageView是一个流行的Android库，可以帮助开发者创建圆形、圆角矩形和椭圆形的图像视图。
+//    它提供了一组自定义属性，可以控制圆角的大小和颜色，并支持边框和阴影等效果。
+        implementation 'com.makeramen:roundedimageview:2.3.0'
+    }
 }
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+}
+
